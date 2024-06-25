@@ -92,6 +92,9 @@ export async function run() {
     };
 
     if (unsetCurrentCredentials) {
+      core.info("#unsetCurrentCredentials invoked");
+      core.info("unsetCurrentCredentials invoked");
+
       unsetCredentials();
     }
 
@@ -127,6 +130,15 @@ export async function run() {
       // Plus, in the assume role case, if the AssumeRole call fails, we want
       // the source credentials to already be masked as secrets
       // in any error messages.
+      core.info(`AccessKeyId: ${AccessKeyId}`);
+      core.info(`AWS_ACCESS_KEY_ID: ${process.env['AWS_ACCESS_KEY_ID']}`);
+      core.info(`SecretAccessKey: ${SecretAccessKey}`);
+      core.info(`AWS_SECRET_ACCESS_KEY: ${process.env['AWS_SECRET_ACCESS_KEY']}`);
+      core.info(`SessionToken: ${SessionToken}`);
+      core.info(`AWS_SESSION_TOKEN: ${process.env['AWS_SESSION_TOKEN']}`);
+      core.info(`region: ${region}`);
+      core.info(`AWS_REGION: ${process.env['AWS_REGION']}`);
+
       exportCredentials({ AccessKeyId, SecretAccessKey, SessionToken });
     } else if (!webIdentityTokenFile && !roleChaining) {
       // Proceed only if credentials can be picked up
