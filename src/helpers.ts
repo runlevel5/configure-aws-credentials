@@ -50,6 +50,11 @@ export function unsetCredentials() {
   core.exportVariable('AWS_SESSION_TOKEN', '');
   core.exportVariable('AWS_REGION', '');
   core.exportVariable('AWS_DEFAULT_REGION', '');
+  delete process.env['AWS_ACCESS_KEY_ID'];
+  delete process.env['AWS_SECRET_ACCESS_KEY'];
+  delete process.env['AWS_SESSION_TOKEN'];
+  delete process.env['AWS_REGION'];
+  delete process.env['AWS_DEFAULT_REGION'];
 }
 
 export function exportRegion(region: string) {
