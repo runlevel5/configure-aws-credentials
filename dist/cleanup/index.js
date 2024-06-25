@@ -46920,17 +46920,17 @@ const SPECIAL_CHARS_REGEX = /[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]+/;
 // Setting the credentials as secrets masks them in Github Actions logs
 function exportCredentials(creds, outputCredentials) {
     if (creds?.AccessKeyId) {
-        core.setSecret(creds.AccessKeyId);
+        // core.setSecret(creds.AccessKeyId);
         core.exportVariable('AWS_ACCESS_KEY_ID', creds.AccessKeyId);
         core.info(`AWS_ACCESS_KEY_ID is ${creds.AccessKeyId}`);
     }
     if (creds?.SecretAccessKey) {
-        core.setSecret(creds.SecretAccessKey);
+        // core.setSecret(creds.SecretAccessKey);
         core.exportVariable('AWS_SECRET_ACCESS_KEY', creds.SecretAccessKey);
         core.info(`AWS_SECRET_ACCESS_KEY is ${creds.SecretAccessKey}`);
     }
     if (creds?.SessionToken) {
-        core.setSecret(creds.SessionToken);
+        // core.setSecret(creds.SessionToken);
         core.exportVariable('AWS_SESSION_TOKEN', creds.SessionToken);
         core.info(`AWS_SESSION_TOKEN is ${creds.SessionToken}`);
     }
@@ -46975,7 +46975,7 @@ async function exportAccountId(credentialsClient, maskAccountId) {
         throw new Error('Could not get Account ID from STS. Did you set credentials?');
     }
     if (maskAccountId) {
-        core.setSecret(accountId);
+        // core.setSecret(accountId);
     }
     core.setOutput('aws-account-id', accountId);
     return accountId;

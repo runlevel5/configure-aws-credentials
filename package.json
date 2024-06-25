@@ -4,8 +4,7 @@
   "scripts": {
     "build": "tsc --project tsconfig.build.json",
     "lint": "eslint .",
-    "package": "npm run build && ncc build --license THIRD-PARTY -o dist && ncc build src/cleanup/index.ts -o dist/cleanup && copyup -E dist/THIRD-PARTY . && del-cli dist/THIRD-PARTY",
-    "test": "npm run lint && jest --verbose"
+    "package": "npm run build && ncc build --license THIRD-PARTY -o dist && ncc build src/cleanup/index.ts -o dist/cleanup && copyup -E dist/THIRD-PARTY . && del-cli dist/THIRD-PARTY"
   },
   "author": {
     "name": "Amazon.com, Inc. or its affiliates",
